@@ -23,7 +23,7 @@ const Header = () => {
         <Toolbar variant="dense">
           <SpeedIcon className={classes.speedyIcon} />
           <Typography variant="h5" color="inherit">
-            Speedometer
+            Complexity Dashboard
           </Typography>
         </Toolbar>
       </AppBar>

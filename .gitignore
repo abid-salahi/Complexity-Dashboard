@@ -1,0 +1,12 @@
+.idea/*
+.vscode/
+.DS_Store
+dist/build
+node_modules/
+src/client/.DS_Store
+src/client/.vscode
+src/client/build/
+__pycache__/
+generated_dockerfiles/
+*.pyc
+scalene.tar

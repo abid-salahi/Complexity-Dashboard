@@ -1,16 +1,19 @@
-# Speedometer
+# Complexity Dashboard
 
 [Watch the video here](https://drive.google.com/file/d/1Sw31UE2h0gWIgypsrU14E9wYE4hArfLq/view)
 
-![](docs/images/sample_visualization.png)
+![](docs/images/summary.png)
+![](docs/images/time-complexity.png)
+![](docs/images/space-complexity.png)
+![](docs/images/line-by-line.png)
 
 ## Requirements
 
 - Python 3.x
 - Docker (with sudo privileges if on linux)
-    - You also need to download the Scalene docker image from [here](https://drive.google.com/file/d/11ToQiG0ONLSz_8-D3dS5OLkXvDHIZyJC/view?usp=sharing) and place it under `<project root>/resources`
+  - You also need to download the Scalene docker image from [here](https://drive.google.com/file/d/11ToQiG0ONLSz_8-D3dS5OLkXvDHIZyJC/view?usp=sharing) and place it under `<project root>/resources`
 - Other python dependencies:
-    - Run `pip install -r requirements.txt` in the root folder of the project
+  - Run `pip install -r requirements.txt` in the root folder of the project
 - Yarn
 - At least 10 GB of free space on your computer (docker images are large!)
 
@@ -20,68 +23,69 @@
 
 1. Ensure you have Python 3.x installed as well as the latest version of pip. Test your installation using:
 
-    ```shell
-    $ python --version
-    Python 3.7.0
-    
-    $pip --version
-    pip 19.0.3
-    ```
-    
+   ```shell
+   $ python --version
+   Python 3.7.0
+
+   $pip --version
+   pip 19.0.3
+   ```
+
 2. Ensure you have Docker installed. You can follow the instructions [here](https://docs.docker.com/get-docker/) to install it. Test your installation using:
 
-    ```shell
-    $ docker run hello-world
-    ```
-    This will run the hello-world docker container and print a message if everything works.
-    
+   ```shell
+   $ docker run hello-world
+   ```
+
+   This will run the hello-world docker container and print a message if everything works.
+
 3. (Optional but recommended) To speed up the analysis process, please pull the latest `python` Docker image using:
 
-    ```shell
-    $ docker pull python
-    ```
-    
-    Then test that it has been successfully downloaded (it may take a few minutes) using:
-    
-    ```shell
-    $ docker images -a
-    
-    REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-    python              latest              a3fe352c5377        12 days ago         886MB
-    ```
-    
-    This is optional since Speedometer will pull this image automatically if not present, but performing this beforehand speeds up the analysis process the first time you run it.
+   ```shell
+   $ docker pull python
+   ```
+
+   Then test that it has been successfully downloaded (it may take a few minutes) using:
+
+   ```shell
+   $ docker images -a
+
+   REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+   python              latest              a3fe352c5377        12 days ago         886MB
+   ```
+
+   This is optional since Speedometer will pull this image automatically if not present, but performing this beforehand speeds up the analysis process the first time you run it.
 
 4. Ensure you have the latest version of Yarn installed. You can follow the instructions [here](https://classic.yarnpkg.com/en/docs/getting-started) to install it. Test your installation using:
 
-    ```shell
-    $ yarn --version
-    1.19.0 
-    ```
-    
+   ```shell
+   $ yarn --version
+   1.19.0
+   ```
+
 5. You may have to restart your computer after steps 1-4
 
 6. Clone the repo into your local computer. We will refer to the cloned project folder as `<project root>`
 7. Download the Python dependencies using the following command **in `<project root>`**:
 
-    ```shell
-    $ pip install -r requirements.txt
-    ```
+   ```shell
+   $ pip install -r requirements.txt
+   ```
 
-7. Download the Scalene docker image tar ([available here](https://drive.google.com/file/d/11ToQiG0ONLSz_8-D3dS5OLkXvDHIZyJC/view?usp=sharing)) and place it under `<project root>/resources`. This is how it should look:
+8. Download the Scalene docker image tar ([available here](https://drive.google.com/file/d/11ToQiG0ONLSz_8-D3dS5OLkXvDHIZyJC/view?usp=sharing)) and place it under `<project root>/resources`. This is how it should look:
 
-    ![](docs/images/scalene_tar_location.jpg)
-    
-    Text file labelled (1) is there to identify where to put the tar file.
-    (2) shows how the downloaded tar file should be placed
-    
-8. (Optional but recommended) To speed up the analysis process, navigate to `<project root>/src/client` where you will find a `package.json` file. Install the yarn dependencies for the client using:
+   ![](docs/images/scalene_tar_location.jpg)
 
-    ```shell
-    $ yarn install
-    ```
-    
-    This is optional since Speedometer will run this the first time you analyze a script, but you can speed up the analysis process by installing the dependencies before-hand
+   Text file labelled (1) is there to identify where to put the tar file.
+   (2) shows how the downloaded tar file should be placed
+
+9. (Optional but recommended) To speed up the analysis process, navigate to `<project root>/src/client` where you will find a `package.json` file. Install the yarn dependencies for the client using:
+
+   ```shell
+   $ yarn install
+   ```
+
+   This is optional since Speedometer will run this the first time you analyze a script, but you can speed up the analysis process by installing the dependencies before-hand
 
 ## Usage
 
@@ -101,7 +105,7 @@ where `--program` gives the path to the python file, `--config` gives the path t
 
 Let the program run for a few minutes. If this is the first time you're running Speedometer, this can take up to 10 mins.
 
-Once the analysis is complete, a browser window should automatically open to show a visualization of the results. If it does not open automatically, you can open it manually through `<project root>/dist/build/index.html`. 
+Once the analysis is complete, a browser window should automatically open to show a visualization of the results. If it does not open automatically, you can open it manually through `<project root>/dist/build/index.html`.
 
 You can view the visualization generated for `merge_sort.py` [here](samples/merge_sort/results_visualization) (open index.html in browser).
 
@@ -123,7 +127,6 @@ python3 src/MainCLI.py -v --program "samples/insertion_sort/insertion_sort.py" -
 
 View the generated [results here](samples/insertion_sort/results_visualization)
 
-
 - Inefficient Fibonacci
 
 ```shell
@@ -131,7 +134,6 @@ python3 src/MainCLI.py -v --program "samples/fibonacci/fibonacci.py" --config "s
 ```
 
 View the generated [results here](samples/fibonacci/results_visualization)
-
 
 - Binary Search
 
@@ -141,7 +143,6 @@ python3 src/MainCLI.py -v --program "samples/binary_search/binary_search.py" --c
 
 View the generated [results here](samples/binary_search/results_visualization)
 
-
 - Constant time/space loop
 
 ```shell
@@ -149,7 +150,6 @@ python3 src/MainCLI.py -v --program "samples/constant_loop/constant_loop.py" --c
 ```
 
 View the generated [results here](samples/constant_loop/results_visualization)
-
 
 ## Explanation of config file
 
@@ -159,13 +159,13 @@ For example, the config file below:
 
 ```json
 {
-    "arguments": {
-      "500": [500, "-f"],
-      "1000": [1000, "-f"],
-      "5000": [5000, "-f"],
-      "10000": [10000, "-f"],
-      "20000": [20000, "-f"]
-    }
+  "arguments": {
+    "500": [500, "-f"],
+    "1000": [1000, "-f"],
+    "5000": [5000, "-f"],
+    "10000": [10000, "-f"],
+    "20000": [20000, "-f"]
+  }
 }
 ```
 
@@ -183,17 +183,17 @@ To get good analysis results, ensure that the input sizes given result in the sc
 
 ## Limitations
 
-* Mac OS or Linux only
-* Does not support multi-file projects yet
-* Only supports standard python libraries - cannot import external libraries in test scripts
-* The test script must run for at least 2 seconds on the smallest input.
-* Running multiple analysis back-to-back can affect results due to thermal throttling of the CPU
+- Mac OS or Linux only
+- Does not support multi-file projects yet
+- Only supports standard python libraries - cannot import external libraries in test scripts
+- The test script must run for at least 2 seconds on the smallest input.
+- Running multiple analysis back-to-back can affect results due to thermal throttling of the CPU
 
 ## Development
 
 ### Requirements
 
-* Pytest for Python 3.x
+- Pytest for Python 3.x
 
 ### Running unit tests
 
@@ -202,4 +202,3 @@ Use the following command from `<project root>` to run the unit test suite:
 ```shell
 $ pytest -vvs
 ```
-
