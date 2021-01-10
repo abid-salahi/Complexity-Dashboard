@@ -1,4 +1,4 @@
-# Complexity Dashboard
+# Program Speedometer
 
 ![](docs/images/summary.png)
 ![](docs/images/time-complexity.png)
